@@ -1,0 +1,14 @@
+---
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: inno_postgres
+    restart: always
+    ports:
+      - '7071:5432'
+    environment:
+      PGUSER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: postgres
