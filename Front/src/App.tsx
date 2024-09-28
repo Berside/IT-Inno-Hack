@@ -9,6 +9,8 @@ import LoginForm from './components/LoginForm';
 import RegForm from './components/RegForm';
 import { HeaderContainerStyle, HeaderContentStyle } from './styles/header';
 import Gheader from './components/GHeader';
+import Userprofile from './components/UserProfile/UserProfile';
+import task from './components/TaskBoard/TaskBoard';
 
 
 function App() {
