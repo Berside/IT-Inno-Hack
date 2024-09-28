@@ -12,3 +12,23 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: user
       POSTGRES_DB: postgres
+
+  backend:
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USERNAME=user
+
+      - SERVER_PORT=7070
+      - DEBUG=false
+
+      - SECRET_KEY="!secret"
+    build:
+      dockerfile: deploy/docker/api.Dockerfile
+    container_name: inno-hack-api
+    ports:
+      - 7070:7070
+    depends_on:
+      - postgres
