@@ -1,11 +1,16 @@
 FROM openjdk:17
 
-ARG JAR_FILE=/target/*.jar
+WORKDIR /project
+
+COPY backend/mvnw .
+COPY backend/.mvn .mvn
+COPY backend/pom.xml .
+COPY backend/src src
+
+RUN ./mvnw -B package -DskipTests
 
 EXPOSE 7070
 
-WORKDIR /project
-
-COPY ${JAR_FILE} app.jar
+RUN cp /project/target/*.jar app.jar
 
 ENTRYPOINT ["java","-jar","app.jar"]

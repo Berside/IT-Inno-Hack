@@ -11,12 +11,13 @@ import { HeaderContainerStyle, HeaderContentStyle } from './styles/header';
 import Gheader from './components/GHeader';
 import Userprofile from './components/UserProfile/UserProfile';
 import task from './components/TaskBoard/TaskBoard';
+import { getUsers } from './getUsers';
 
 
 function App() {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
-
+  getUsers();
   return (
     <Gheader/>
   );
